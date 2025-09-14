@@ -1,7 +1,7 @@
 # Goutham Shimoga Umesh — Applied CFD Portfolio
 _Aerospace MS @ ASU • CFD | Aerodynamics | Heat Transfer • ANSYS Fluent 2023/2024_
 
-[LinkedIn](https://www.linkedin.com/) · [Email](mailto:you@example.com) · [Resume (PDF)](./Goutham_Shimoga_Umesh_Resume.pdf)
+[LinkedIn](www.linkedin.com/in/goutham07) · [Email](gouthamshimogaumesh@gmail.com) · [Resume (PDF)](./Goutham_Shimoga_Umesh_Resume.pdf)
 
 ---
 
