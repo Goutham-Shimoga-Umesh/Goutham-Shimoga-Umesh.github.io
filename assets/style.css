@@ -102,3 +102,17 @@ a{color:inherit;text-decoration:none}
 @media (max-width: 520px){
   .gallery{grid-template-columns: 1fr;}
 }
+/* --- Fix long titles getting cut off --- */
+.card img{ height: 50%; }                 /* give more room to text (was 55%) */
+.card .content{ padding:10px 12px 12px; }  /* slightly tighter padding */
+.card h3{
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.25;
+  margin: 0 0 4px 0;
+  display: -webkit-box;                    /* wrap neatly */
+  -webkit-line-clamp: var(--title-lines, 2); /* default 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.meta{ font-size: 11.5px; }
+.pill{ margin-bottom: 6px; }
