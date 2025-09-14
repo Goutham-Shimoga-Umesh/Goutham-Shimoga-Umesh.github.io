@@ -5,13 +5,13 @@
   --card-h: clamp(240px, 30vh, 320px);
 }
 
+/* Base */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial}
-
-/* Responsive typography */
 html{font-size:clamp(14px, 1.4vw, 16px)}
 a{color:inherit;text-decoration:none}
 
+/* Layout */
 .container{max-width:min(1200px, 95vw);margin:0 auto;padding:28px}
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap}
 .brand{display:flex;gap:12px;align-items:center}
@@ -20,9 +20,9 @@ a{color:inherit;text-decoration:none}
 .links a{padding:8px 12px;border:1px solid var(--border);border-radius:10px;color:var(--muted);font-size:13px}
 .links a:hover{border-color:var(--accent);color:var(--text)}
 
-/* New: wrapper limits visible cards to 9 (3 rows x 3 cols). Extra cards scroll inside. */
+/* Wrapper shows at most 3 rows (9 cards) then scrolls; on small screens we disable wrapper scrolling */
 .gallery-wrapper{
-  max-height: calc(var(--card-h) * 3 + var(--gap) * 2 + 2px); /* 3 rows + 2 gaps */
+  max-height: calc(var(--card-h) * 3 + var(--gap) * 2 + 2px); /* 3 rows + 2 row gaps + border */
   overflow-y: auto;
   padding-right: 4px; /* room for scrollbar */
   scroll-behavior: smooth;
@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}
   border: 1px solid var(--border);
 }
 
-/* 3 equal columns, endless rows */
+/* Three equal columns; rows grow automatically */
 .gallery{
   display:grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none}
   padding: var(--gap);
 }
 
-/* Cards scale proportionally using fixed height token */
+/* Card */
 .card{
   background:linear-gradient(180deg,#141a26, #0f141f);
   border:1px solid var(--border);
@@ -52,30 +52,44 @@ a{color:inherit;text-decoration:none}
 }
 .card:hover{transform:translateY(-2px);border-color:var(--accent)}
 
+/* Cover image gets 50% height to leave more room for text */
 .card img{
   width:100%;
-  height:55%;           /* top area reserved for the cover image */
+  height:50%;           /* was 55% */
   object-fit:cover;
   background:#10151f;
   display:block;
 }
 
+/* Content area fills remaining height */
 .card .content{
-  flex:1 1 auto;        /* content fills remaining height */
+  flex:1 1 auto;
   min-height:0;
-  padding:12px 12px 14px;
+  padding:10px 12px 12px; /* slightly tighter */
   display:flex;
   flex-direction:column;
 }
 
-.card .pill{
+.pill{
   display:inline-block;font-size:11px;color:var(--muted);
   border:1px solid var(--border);padding:2px 8px;border-radius:999px;
-  margin-right:6px;margin-bottom:8px;white-space:nowrap
+  margin-right:6px;margin-bottom:6px;white-space:nowrap
 }
-.card h3{margin:0 0 6px 0;font-size:clamp(14px,1.6vw,16px);line-height:1.3}
-.meta{font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
 
+/* Long-title handling: clamp to 2 lines by default; per-card override via --title-lines */
+.card h3{
+  margin:0 0 4px 0;
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--title-lines, 2);
+  overflow: hidden;
+}
+
+.meta{font-size:11.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+/* Footer + buttons */
 .footer{
   margin-top:28px;border-top:1px solid var(--border);padding-top:18px;color:var(--muted);
   font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
@@ -83,7 +97,7 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-block;margin-top:10px;font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;color:var(--muted)}
 .btn:hover{border-color:var(--accent);color:var(--text)}
 
-/* Project detail pages */
+/* Project details */
 .detail{max-width:min(900px, 95vw);margin:0 auto;padding:28px}
 .detail h1{margin:10px 0 6px;font-size:clamp(22px,2.4vw,28px)}
 .detail .lead{color:var(--muted);margin-bottom:14px}
@@ -94,7 +108,7 @@ a{color:inherit;text-decoration:none}
 .table th,.table td{border-bottom:1px solid var(--border);padding:8px 10px;font-size:13px;text-align:left}
 .back{display:inline-block;margin:4px 0 16px;color:var(--accent)}
 
-/* Small screens: switch to page scroll and fewer columns */
+/* Responsive: fewer columns + page scroll on smaller screens */
 @media (max-width: 900px){
   .gallery{grid-template-columns: repeat(2, minmax(0,1fr));}
   .gallery-wrapper{max-height:none; overflow:visible; border:none; padding:0;}
@@ -102,17 +116,3 @@ a{color:inherit;text-decoration:none}
 @media (max-width: 520px){
   .gallery{grid-template-columns: 1fr;}
 }
-/* --- Fix long titles getting cut off --- */
-.card img{ height: 50%; }                 /* give more room to text (was 55%) */
-.card .content{ padding:10px 12px 12px; }  /* slightly tighter padding */
-.card h3{
-  font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.25;
-  margin: 0 0 4px 0;
-  display: -webkit-box;                    /* wrap neatly */
-  -webkit-line-clamp: var(--title-lines, 2); /* default 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.meta{ font-size: 11.5px; }
-.pill{ margin-bottom: 6px; }
