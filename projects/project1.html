@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Over Cylinder — Vortex Shedding (2D) — CFD Portfolio</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="detail">
+    <a class="back" href="../index.html">← Back to gallery</a>
+    <h1>Flow Over Cylinder — Vortex Shedding (2D)</h1>
+    <div class="lead">Unsteady bluff-body wake; extract Strouhal and lift waveform at Re≈600.</div>
+
+    <figure class="figure">
+      <img src="../images/p1_cover.png" alt="Flow Over Cylinder — Vortex Shedding (2D) cover">
+      <figcaption>Cover</figcaption>
+    </figure>
+
+    <h3>Setup</h3>
+    <table class="table">
+      <tbody>
+        <tr><th>Software</th><td>ANSYS Fluent 2024 R2</td></tr>
+<tr><th>Model</th><td>Laminar, transient</td></tr>
+<tr><th>BCs</th><td>Inlet U=0.05 m/s, Outlet p=0, Top/Bottom slip, Cylinder no-slip</td></tr>
+<tr><th>Mesh/Time</th><td>~56k cells; Δt=0.05 s; 60 iters/step; t=60 s</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Key Results</h3>
+    <table class="table">
+      <tbody>
+        <tr><th>Reynolds (D=0.04 m)</th><td>≈608</td></tr>
+<tr><th>Strouhal (St=f·D/U)</th><td>≈0.22</td></tr>
+<tr><th>Lift amplitude</th><td>0.043 N</td></tr>
+<tr><th>Period</th><td>3.65 s</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Figures</h3>
+    <figure class="figure"><img src="../images/01_y_velocity_60s.png" alt="y-velocity at t=60 s"><figcaption>y-velocity at t=60 s</figcaption></figure>
+<figure class="figure"><img src="../images/02_streamfunction_60s.png" alt="Stream function at t=60 s"><figcaption>Stream function at t=60 s</figcaption></figure>
+<figure class="figure"><img src="../images/03_vorticity_60s.png" alt="Vorticity magnitude at t=60 s"><figcaption>Vorticity magnitude at t=60 s</figcaption></figure>
+<figure class="figure"><img src="../images/04_lift_time_circular.png" alt="Lift vs time (circular)"><figcaption>Lift vs time (circular)</figcaption></figure>
+
+    <div class="footer">
+      <div>© Goutham-Shimoga-Umesh</div>
+      <div><a class="btn" href="mailto:gouthamshimogaumesh@gmail.com">Contact</a></div>
+    </div>
+  </div>
+</body>
+</html>
