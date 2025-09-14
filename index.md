@@ -57,4 +57,4 @@ ANSYS Fluent (pressure/density-based), steady & transient · Turbulence: k–ω 
 ---
 
 ## Contact
-**Email:** you@example.com · **LinkedIn:** https://www.linkedin.com/in/YOUR-HANDLE · **GitHub:** https://github.com/YOUR-USERNAME
+**Email:** gouthamshimogaumesh@gmail.com · **LinkedIn:** https://www.linkedin.com/in/goutham07 · **GitHub:** https://github.com/YOUR-USERNAME
