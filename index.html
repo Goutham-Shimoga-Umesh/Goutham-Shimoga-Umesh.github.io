@@ -23,9 +23,10 @@
       </div>
     </div>
 
-    <!-- NEW: wrapper limits visible cards to 3 rows (9 items); extra items scroll -->
+    <!-- Wrapper limits to 3 rows (9 cards). Extra cards auto-scroll inside. -->
     <div class="gallery-wrapper">
       <div class="gallery">
+
         <a class="card" href="./projects/project1.html">
           <img src="./images/p1_cover.png" alt="Project 1 cover">
           <div class="content">
@@ -35,15 +36,7 @@
           </div>
         </a>
 
-        <a class="card" href="./projects/project2.html">
-          <img src="./images/p2_cover.png" alt="Project 2 cover">
-          <div class="content">
-            <span class="pill">3D</span><span class="pill">External Aero</span>
-            <h3>Flying Saucer — Tilt Sweep (θ=0°/25°/50°)</h3>
-            <div class="meta">k–ω SST · Lift/Drag vs θ</div>
-          </div>
-        </a>
-
+        <!-- Allow 3 lines for just this long title via --title-lines -->
         <a class="card" href="./projects/project2.html" style="--title-lines:3">
           <img src="./images/p2_cover.png" alt="Project 2 cover">
           <div class="content">
@@ -53,6 +46,14 @@
           </div>
         </a>
 
+        <a class="card" href="./projects/project3.html">
+          <img src="./images/p3_cover.png" alt="Project 3 cover">
+          <div class="content">
+            <span class="pill">3D</span><span class="pill">Bluff Body</span>
+            <h3>Pentagon Building — Crosswind Loading</h3>
+            <div class="meta">Pressure vs Viscous Drag</div>
+          </div>
+        </a>
 
         <a class="card" href="./projects/project4.html">
           <img src="./images/p4_cover.png" alt="Project 4 cover">
@@ -72,7 +73,7 @@
           </div>
         </a>
 
-        <!-- Add more <a class="card">…</a> items here; the wrapper will scroll after 9 items -->
+        <!-- Add more <a class="card">…</a> items here; after 9, the wrapper will scroll -->
       </div>
     </div>
 
@@ -83,4 +84,3 @@
   </div>
 </body>
 </html>
-
