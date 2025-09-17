@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regional Turboprop — Design Point & Wing FEA</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <div class="detail">
+    <a class="back" href="../../index.html">← Back to gallery</a>
+    <h1>Regional Turboprop — Design Point &amp; Wing FEA</h1>
+    <div class="lead">
+      Bachelor’s capstone (2023). I led performance sizing (matching plot) and the static structural analysis of a 3‑D wing using ANSYS.
+      The project connects conceptual design decisions to structural feasibility.
+    </div>
+
+    <figure class="figure">
+      <img src="./cover_total_deformation.png" alt="Wing total deformation">
+      <figcaption>Static total deformation (primary load case) — used as the cover image.</figcaption>
+    </figure>
+
+    <h3>Key Results (Design Point &amp; Structure)</h3>
+    <table class="table">
+      <tbody>
+        <tr><th>Maximum take‑off weight (MTOW)</th><td><b>38,540 kg</b></td></tr>
+        <tr><th>Wing loading, W/S</th><td><b>582.1 kg/m²</b></td></tr>
+        <tr><th>Wing planform area, S</th><td><b>≈ 66.2 m²</b></td></tr>
+        <tr><th>Power estimate (total shaft)</th><td><b>≈ 9.05 MW</b> (twin turboprop class)</td></tr>
+        <tr><th>Max total deformation (FEA)</th><td><b>≈ 0.451 m</b></td></tr>
+        <tr><th>Modeled single‑wing mass</th><td><b>≈ 530 kg</b></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Approach</h3>
+    <ul>
+      <li>Built constraint curves (take‑off distance, climb, ceiling, cruise) to form a matching plot and select the design point.</li>
+      <li>Selected <b>NACA 64‑108</b> and modeled a half‑span wing with ribs, spars and skin.</li>
+      <li>Ran static structural analysis in ANSYS to visualize deformation and von‑Mises stress.</li>
+    </ul>
+
+    <h3>Figures</h3>
+    <figure class="figure">
+      <img src="./vonmises_stress.png" alt="von Mises stress">
+      <figcaption>Equivalent (von‑Mises) stress field for the same load case.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="./deformed_plus_undef.png" alt="Deformed vs undeformed overlay">
+      <figcaption>Deformed vs. undeformed overlay — deformation shape across span.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="./ribs_spars_view.png" alt="Internal rib and spar layout">
+      <figcaption>Internal rib and spar layout used for the structural model.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img src="./planform_top.png" alt="Planform / top view">
+      <figcaption>Planform/top view of the wing geometry.</figcaption>
+    </figure>
+
+    <p class="lead" style="margin-top:12px">
+      Note: Results are reported as documented in the 2023 team paper; this page presents a concise, recruiter‑friendly summary.
+    </p>
+
+    <div class="footer">
+      <div>© Goutham‑Shimoga‑Umesh</div>
+      <div><a class="btn" href="mailto:gouthamshimogaumesh@gmail.com">Contact</a></div>
+    </div>
+  </div>
+</body>
+</html>
