@@ -59,4 +59,13 @@
     "titleLines": 2,
     "date": "2025-03-05"
   }
+  {
+  "title": "Regional Turboprop — Design Point & Wing FEA",
+  "href": "./projects/rta-wing/project.html",
+  "cover": "./projects/rta-wing/cover_total_deformation.png",
+  "tags": ["Conceptual Sizing", "Structural FEA"],
+  "meta": "MTOW 38.5 t · S≈66 m² · P≈9.05 MW",
+  "titleLines": 2,
+  "date": "2025-09-17"
+  }
 ]
