@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flying Saucer — Tilt Sweep (θ = 0° / 25° / 50°)</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="detail">
+    <a class="back" href="../index.html">← Back to gallery</a>
+    <h1>Flying Saucer — Tilt Sweep (θ = 0° / 25° / 50°)</h1>
+    <div class="lead">
+      3‑D external aerodynamics in ANSYS Fluent. I tested a “flying‑saucer” body at three tilt angles
+      in a cylindrical wind tunnel and compared lift/drag performance and wake structure.
+    </div>
+
+    <figure class="figure">
+      <img src="./flying-saucer/cover.jpg" alt="Cover — X‑velocity contour at 25°">
+      <figcaption>Representative X‑velocity contour (θ = 25°).</figcaption>
+    </figure>
+
+    <h3>Setup (class spec)</h3>
+    <ul>
+      <li><b>Domain:</b> Cylindrical tunnel, R = 0.60 m, L = 2.00 m; object rotated by θ = 0°, 25°, 50°.</li>
+      <li><b>Inlet profile:</b> u(r) = 50⋅(1 − (r/R)^2) m/s (parabolic; axisymmetric).</li>
+      <li><b>Fluid:</b> Air at ρ = 0.35 kg·m⁻³, μ = 1.5×10⁻⁵ N·s·m⁻² (high‑altitude condition).</li>
+      <li><b>Model:</b> k–ω SST, steady RANS; outlet = pressure outlet; side/top/bottom = slip wall (zero shear).</li>
+      <li><b>Monitors:</b> Total lift/drag on the body; X‑velocity contours on symmetry plane.</li>
+    </ul>
+
+    <h3>Key Observations</h3>
+    <ul>
+      <li>Increasing θ expands the separated region and raises pressure drag; wake widens and deflects.</li>
+      <li>Lift appears to peak near θ ≈ 25°, then drops as separation dominates at θ = 50°.</li>
+      <li>Mesh is refined around the body to capture shear layers and recirculation (see mesh view).</li>
+    </ul>
+
+    <h3>Figures</h3>
+    <figure class="figure">
+      <img src="./flying-saucer/xvel_0deg.jpg" alt="X‑velocity at 0 degrees">
+      <figcaption>X‑velocity contour at θ = 0°.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="./flying-saucer/xvel_25deg.jpg" alt="X‑velocity at 25 degrees">
+      <figcaption>X‑velocity contour at θ = 25°.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="./flying-saucer/xvel_50deg.jpg" alt="X‑velocity at 50 degrees">
+      <figcaption>X‑velocity contour at θ = 50° (larger separated wake).</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="./flying-saucer/mesh_50deg.jpg" alt="Mesh near the body at 50 degrees">
+      <figcaption>Unstructured surface mesh on the symmetry plane (θ = 50°) showing local refinement.</figcaption>
+    </figure>
+    <figure class="figure">
+      <img src="./flying-saucer/results_table.png" alt="Lift/Drag summary table">
+      <figcaption>Lift/drag summary captured from the Fluent reports for the three angles.</figcaption>
+    </figure>
+
+    <div class="footer">
+      <div>© Goutham-Shimoga-Umesh</div>
+      <div><a class="btn" href="mailto:gouthamshimogaumesh@gmail.com">Contact</a></div>
+    </div>
+  </div>
+</body>
+</html>
