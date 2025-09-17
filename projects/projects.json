@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Flow Over Cylinder \u2014 Vortex Shedding",
+    "href": "./projects/project1.html",
+    "cover": "./projects/project1/p1_cover.png",
+    "tags": [
+      "Unsteady",
+      "External Aero"
+    ],
+    "meta": "St\u22480.22 \u00b7 Re\u2248600 \u00b7 t=60 s",
+    "titleLines": 2,
+    "date": "2025-06-01"
+  },
+  {
+    "title": "Flying Saucer \u2014 Tilt Sweep (\u03b8=0\u00b0/25\u00b0/50\u00b0)",
+    "href": "./projects/project2.html",
+    "cover": "./projects/project2/p2_cover.png",
+    "tags": [
+      "3D",
+      "External Aero"
+    ],
+    "meta": "k\u2013\u03c9 SST \u00b7 Lift/Drag vs \u03b8",
+    "titleLines": 3,
+    "date": "2025-07-15"
+  },
+  {
+    "title": "Pentagon Building \u2014 Crosswind Loading",
+    "href": "./projects/project3.html",
+    "cover": "./projects/project3/p3_cover.png",
+    "tags": [
+      "3D",
+      "Bluff Body"
+    ],
+    "meta": "Pressure vs Viscous Drag",
+    "titleLines": 2,
+    "date": "2025-05-20"
+  },
+  {
+    "title": "2D Nozzle \u2014 Subsonic vs Supersonic",
+    "href": "./projects/project4.html",
+    "cover": "./projects/project4/p4_cover.png",
+    "tags": [
+      "Compressible",
+      "Nozzle"
+    ],
+    "meta": "Mach Centerline \u00b7 Shocks",
+    "titleLines": 2,
+    "date": "2025-04-10"
+  },
+  {
+    "title": "Helical Pipe \u2014 \u0394T (CFD vs Hand Calc)",
+    "href": "./projects/project5.html",
+    "cover": "./projects/project5/p5_cover.png",
+    "tags": [
+      "Thermal",
+      "Validation"
+    ],
+    "meta": "q\u2033=600 W/m\u00b2 \u00b7 4 velocities",
+    "titleLines": 2,
+    "date": "2025-03-05"
+  }
+]
