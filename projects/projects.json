@@ -19,8 +19,8 @@
   },
   {
     "title": "Flying Saucer — Tilt Sweep (θ=0°/25°/50°) (3D External Aero)",
-    "href": "./projects/project2.html",
-    "cover": "./projects/project2/p2_cover.png",
+    "href": "./projects/flying-saucer.html",
+    "cover": "./projects/flying-saucer/cover.jpg",
     "tags": ["3D", "External Aero"],
     "meta": "k–ω SST · Lift/Drag vs θ",
     "titleLines": 2,
