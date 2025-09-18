@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOF Gas Leak with Cross-Flow — Transient Dispersion (2D) — Goutham CFD</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
+    <h1>VOF Gas Leak with Cross-Flow — Transient Dispersion (2D)</h1>
+    <div class="meta-line">Multiphase (VOF) + buoyancy + turbulence — safety/dispersion scenario</div>
+    <div class="tags">
+      <span class="pill">VOF</span><span class="pill">Multiphase</span>
+      <span class="pill">Transient</span><span class="pill">Safety/Dispersion</span>
+    </div>
+    <div class="meta-line">Methane plume, two inlet/outlet configurations (Task 1a/1b) · ANSYS Fluent 2024 R2</div>
+
+    <!-- Cover -->
+    <div class="hero">
+      <img src="./d1.1.jpg" alt="VOF methane volume fraction — Case A at t = 3.0 s">
+    </div>
+
+    <!-- Overview -->
+    <section>
+      <p><strong>Why this case.</strong> Gas-leak dispersion is an industry-relevant safety problem. It couples
+      mixture transport, buoyancy and interface capturing. Here I model a methane release into a cross-flow using the
+      <em>Volume of Fluid (VOF)</em> method and compare two boundary setups.</p>
+      <p><strong>What’s shown.</strong> Methane volume fraction at <code class="inline">t = 3.0 s</code> and
+      <code class="inline">t = 4.5 s</code> for both cases, plus the mesh/time-stepping details used to reach clean convergence.</p>
+    </section>
+
+    <!-- Model & Numerics -->
+    <section>
+      <div class="figure">
+        <div class="figcap"><strong>Model & Numerics</strong></div>
+        <div style="padding:12px">
+          <table style="width:100%;border-collapse:collapse">
+            <tbody>
+              <tr>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Physics</td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">VOF (two phases): methane (light) in air; gravity/buoyancy enabled; transient, pressure-based solver</td>
+              </tr>
+              <tr>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Turbulence</td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">RANS (teaching setup); cross-flow provides background shear</td>
+              </tr>
+              <tr>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Mesh size</td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">≈ <strong>182,500 elements</strong>; ≈ <strong>184,351 nodes</strong></td>
+              </tr>
+              <tr>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Time stepping</td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)"><code class="inline">Δt = 0.01 s</code>; ≤ <code class="inline">60</code> iterations/step</td>
+              </tr>
+              <tr>
+                <td style="padding:6px">Output instants</td>
+                <td style="padding:6px">3.0 s (≈300 steps) and 4.5 s (≈450 steps)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases -->
+    <section>
+      <div class="figure">
+        <div class="figcap"><strong>Boundary-Condition Sets Compared</strong></div>
+        <div style="padding:12px">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Case</th>
+                <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Inlet D</th>
+                <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Outlet A</th>
+                <th style="text-align:left;padding:6px;border-bottom:1px solid var(--border)">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:6px;border-bottom:1px solid var(--border)"><strong>1a — Case A</strong></td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Pressure inlet, gauge <strong>100 Pa</strong></td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Pressure outlet</td>
+                <td style="padding:6px;border-bottom:1px solid var(--border)">Baseline release into cross-flow</td>
+              </tr>
+              <tr>
+                <td style="padding:6px"><strong>1b — Case B</strong></td>
+                <td style="padding:6px">Pressure inlet, gauge <strong>250 Pa</strong></td>
+                <td style="padding:6px">Velocity outlet; <code class="inline">u(y)=0.6y − 0.02y²</code></td>
+                <td style="padding:6px">Stronger driving pressure and parabolic outlet profile → longer, asymmetric plume</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <div class="figure">
+        <img src="./d1.1.jpg" alt="Case A, t = 3.0 s">
+        <div class="figcap">Case A — methane volume fraction at <strong>t = 3.0 s</strong>. Twin counter-rotating roll-up forms from the cap of the jet; plume remains compact.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./d1.2.jpg" alt="Case A, t = 4.5 s">
+        <div class="figcap">Case A — <strong>t = 4.5 s</strong>. Coherent eddies grow while the cap lifts; footprint still symmetric and shorter than Case B.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./d2.1.jpg" alt="Case B, t = 3.0 s">
+        <div class="figcap">Case B — <strong>t = 3.0 s</strong>. Higher inlet pressure and outlet velocity profile tilt the plume; one lobe expands faster.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./d2.2.jpg" alt="Case B, t = 4.5 s">
+        <div class="figcap">Case B — <strong>t = 4.5 s</strong>. Stronger advection/entrainment: longer tongue, thicker shear layer, and more pronounced asymmetry.</div>
+      </div>
+    </section>
+
+    <!-- Quick numbers -->
+    <section>
+      <div class="figure">
+        <div class="figcap"><strong>Quick Numbers (from run sheets)</strong></div>
+        <div style="padding:12px">
+          <table style="width:100%;border-collapse:collapse">
+            <tbody>
+              <tr><td style="padding:6px;border-bottom:1px solid var(--border)">Nodes / Elements</td><td style="padding:6px;border-bottom:1px solid var(--border)">≈ 184,351 / 182,500</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid var(--border)">Δt, iters/step</td><td style="padding:6px;border-bottom:1px solid var(--border)">0.01 s; ≤ 60</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid var(--border)">Steps to 3.0 s / 4.5 s</td><td style="padding:6px;border-bottom:1px solid var(--border)">~300 / ~450</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p><strong>Takeaways.</strong> Case B’s stronger driving and velocity-specified outlet stretch the plume and enhance
+      asymmetry, a typical plant-layout sensitivity. Even on a modest grid and Δt, VOF captures coherent roll-up and buoyant rise cleanly.</p>
+      <p><strong>Next.</strong> Add species transport for LFL/UEL isopleths, refine near-source mesh, and validate against wind-tunnel correlations for rise height and spread rate.</p>
+    </section>
+  </div>
+</body>
+</html>
