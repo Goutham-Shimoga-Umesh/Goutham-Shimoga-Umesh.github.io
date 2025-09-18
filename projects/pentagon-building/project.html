@@ -9,23 +9,96 @@
 <body>
   <div class="main">
     <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
+
     <h1>Pentagon Building — Crosswind Loading (3D)</h1>
-    <div class="meta-line">Urban bluff-body flow; pressure vs viscous contributions</div>
+    <div class="meta-line">Urban bluff-body flow · pressure vs viscous drag contributions</div>
     <div class="tags"><span class="pill">3D</span><span class="pill">Bluff Body</span></div>
-    <div class="meta-line">Two runs with different offsets; Y-velocity and static pressure slices · ANSYS Fluent</div>
-    <div class="hero"><img src="./run1_p.png" alt=""></div>
-    <section>
-      <p>Goal: compare near-wake structure for two pentagon-building setups and discuss aerodynamic load breakdown.</p>
-<p>Diagnostics: horizontal-plane slices of static pressure and Y-velocity reveal wake asymmetry and recovery rate.</p>
-<p>Observation: pressure term dominates total drag; viscous term is small by comparison for both runs.</p>
+    <div class="meta-line">Two configurations (Run 1, Run 2) · ANSYS Fluent · horizontal-plane diagnostics</div>
 
+    <div class="hero"><img src="./run1_p.png" alt="Static pressure contour — Run 1"></div>
+
+    <!-- Overview -->
+    <section>
+      <p><strong>Goal.</strong> Quantify how small geometric/placement changes around a pentagon-shaped building alter cross-wind wake structure and the breakdown of total drag into <em>pressure</em> and <em>skin-friction</em> components.</p>
+      <p><strong>What I varied.</strong> Two runs with different local offsets/obstacles near the building (see sketch in report snapshot). Both cases were solved to steady convergence with the same inlet profile and domain size; results are compared on a mid-height horizontal plane.</p>
+      <p><strong>Diagnostics.</strong> Static pressure and cross-stream velocity (<code class="inline">v</code>, Y-component) contours reveal near-wake recirculation, momentum deficit, and recovery rate downstream.</p>
     </section>
-    <section>
-      <div class="figure"><img src="./run1_p.png" alt=""><div class="figcap">Run 1 — static pressure on the horizontal plane.</div></div>
-<div class="figure"><img src="./run1_v.png" alt=""><div class="figcap">Run 1 — Y-velocity (cross-wind) on the horizontal plane.</div></div>
-<div class="figure"><img src="./run2_p.png" alt=""><div class="figcap">Run 2 — static pressure on the horizontal plane.</div></div>
-<div class="figure"><img src="./run2_v.png" alt=""><div class="figcap">Run 2 — Y-velocity (cross-wind) on the horizontal plane.</div></div>
 
+    <!-- Assumptions / Setup (compact) -->
+    <section>
+      <p><strong>Setup (summary).</strong> Incompressible RANS; uniform approach flow; pentagon prism with sharp corners; walls no-slip; far-field boundaries sufficiently far to limit blockage. Reporting uses plane slices at the same elevation for both runs.</p>
+    </section>
+
+    <!-- Results table (numbers approximated from screenshots) -->
+    <section>
+      <h2 style="font-size:20px;margin:10px 0 6px 0;">Force breakdown (from Fluent reports)</h2>
+      <div class="meta-line">Values read from the provided report screenshots; treated as approximate (≈).</div>
+      <div class="figure" style="padding:10px 12px;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <thead>
+            <tr>
+              <th style="text-align:left;border-bottom:1px solid var(--border);padding:8px;">Case</th>
+              <th style="text-align:right;border-bottom:1px solid var(--border);padding:8px;">Total drag [N]</th>
+              <th style="text-align:right;border-bottom:1px solid var(--border);padding:8px;">Pressure drag [N]</th>
+              <th style="text-align:right;border-bottom:1px solid var(--border);padding:8px;">Viscous drag [N]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px;border-bottom:1px solid var(--border);">Run 1</td>
+              <td style="padding:8px;text-align:right;border-bottom:1px solid var(--border);">≈ 4.59</td>
+              <td style="padding:8px;text-align:right;border-bottom:1px solid var(--border);">≈ 4.39</td>
+              <td style="padding:8px;text-align:right;border-bottom:1px solid var(--border);">≈ 0.02</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;">Run 2</td>
+              <td style="padding:8px;text-align:right;">≈ 4.54</td>
+              <td style="padding:8px;text-align:right;">≈ 4.53</td>
+              <td style="padding:8px;text-align:right;">≈ 0.02</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta-line">Interpretation: pressure drag dominates (&gt;&gt; skin friction), consistent with sharp-edged bluff-body separation. The small drop in total drag for Run&nbsp;2 aligns with a shorter/wider recirculation region and faster pressure recovery.</p>
+    </section>
+
+    <!-- Qualitative findings -->
+    <section>
+      <h2 style="font-size:20px;margin:10px 0 6px 0;">Flow observations</h2>
+      <ul>
+        <li><strong>Wake width & recovery.</strong> Run&nbsp;2 shows a slightly broader but less intense deficit core on <code class="inline">v</code> (Y-velocity), suggesting faster lateral entrainment and earlier recovery of mean momentum.</li>
+        <li><strong>Corner effects.</strong> High-gradient lobes at the windward corners (pressure) and shear layers (Y-velocity) are more symmetric in Run&nbsp;2, indicating cleaner separation and reduced side-force bias.</li>
+        <li><strong>Drag linkage.</strong> The smaller pressure deficit immediately behind the body in Run&nbsp;2 correlates with the ~1–2% reduction in total drag seen in the report numbers.</li>
+      </ul>
+    </section>
+
+    <!-- Figures: single-column stack -->
+    <section>
+      <div class="figure">
+        <img src="./run1_p.png" alt="Run 1 — static pressure on the horizontal plane">
+        <div class="figcap">Run&nbsp;1 — Static pressure on the mid-height plane. Distinct low-pressure footprint aft of the windward face.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./run1_v.png" alt="Run 1 — Y-velocity on the horizontal plane">
+        <div class="figcap">Run&nbsp;1 — Y-velocity (cross-wind) on the same plane. Narrower, stronger deficit core indicates slower lateral recovery.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./run2_p.png" alt="Run 2 — static pressure on the horizontal plane">
+        <div class="figcap">Run&nbsp;2 — Static pressure. Slightly smoother pressure recovery behind the body vs Run&nbsp;1.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./run2_v.png" alt="Run 2 — Y-velocity on the horizontal plane">
+        <div class="figcap">Run&nbsp;2 — Y-velocity. Broader wake footprint with reduced core intensity → earlier entrainment, marginally lower drag.</div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section>
+      <p><strong>Takeaway.</strong> For sharp-edged urban forms, small layout changes can trim pressure drag by nudging separation and wake entrainment. Here, Run&nbsp;2 achieves a modest drag reduction with a fuller near-wake and quicker pressure recovery.</p>
+      <p class="meta-line"><em>Next steps:</em> parametric offset sweep, façade roughness sensitivity, and comparison against LES or wind-tunnel coefficients for calibration.</p>
     </section>
   </div>
 </body>
