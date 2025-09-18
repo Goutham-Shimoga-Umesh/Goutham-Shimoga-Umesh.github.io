@@ -27,16 +27,18 @@
     "date": "2024-11-20"
   },
   {
-    "slug": "pentagon-building-crosswind",
+    {
+    "id": "pentagon-building",
     "title": "Pentagon Building \u2014 Crosswind Loading (3D)",
     "subtitle": "Pressure vs Viscous Drag",
-    "date": "2024-10-20",
+    "date": "2024-10-01",
     "tags": [
       "3D",
       "Bluff Body"
     ],
-    "cover": "projects/project3/cover.jpg",
-    "path": "projects/project3.html"
+    "cover": "./projects/pentagon-building/cover.jpg",
+    "href": "./projects/pentagon-building.html"
+  }
    },
   {
     "title": "2D Nozzle — Subsonic vs Supersonic",
