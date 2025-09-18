@@ -10,23 +10,78 @@
   <div class="main">
     <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
     <h1>Flying Saucer — Angle Sweep (3D External Aero)</h1>
-    <div class="meta-line">Effect of tilt angle (θ = 0°/25°/50°) on lift & drag</div>
+    <div class="meta-line">Effect of tilt angle (θ = 0° / 25° / 50°) on flow features & forces</div>
     <div class="tags"><span class="pill">3D</span><span class="pill">External Aero</span></div>
-    <div class="meta-line">k–ω SST · comparitive X-velocity fields · ANSYS Fluent</div>
-    <div class="hero"><img src="./saucer_25.jpg" alt=""></div>
-    <section>
-      <p>Task: evaluate how tilting a saucer-like body changes flow separation and integrated forces.</p>
-<p>Setup: uniform inlet, k–ω SST, symmetry plane; three attitudes θ = 0°, 25°, 50°.</p>
-<p>Observation: as θ increases, downstream jet deflects and wake widens; qualitative lift/drag trends follow separation extent.</p>
-<p>Note: Force values were summarised from Fluent reports; image of the report table was replaced by this text for clarity.</p>
+    <div class="meta-line">ANSYS Fluent · k–ω SST · symmetry plane</div>
 
+    <div class="hero"><img src="./saucer_25.jpg" alt="Saucer θ=25° — X-velocity field"></div>
+
+    <section>
+      <p><strong>Objective.</strong> Quantify how tilting a saucer-like body changes separation pattern and the relative lift/drag behaviour.</p>
+      <p><strong>Setup.</strong> Uniform inlet; k–ω SST; symmetry plane through the body. Three attitudes were tested: θ = 0°, 25°, 50°.</p>
     </section>
-    <section>
-      <div class="figure"><img src="./saucer_0.jpg" alt=""><div class="figcap">X-velocity contour, θ=0°</div></div>
-<div class="figure"><img src="./saucer_25.jpg" alt=""><div class="figcap">X-velocity contour, θ=25°</div></div>
-<div class="figure"><img src="./saucer_50.jpg" alt=""><div class="figcap">X-velocity contour, θ=50°</div></div>
-<div class="figure"><img src="./mesh_50.jpg" alt=""><div class="figcap">Unstructured surface mesh on symmetry plane (θ=50°) showing refinement.</div></div>
 
+    <section>
+      <h2 style="margin:12px 0 8px 0">Angle sweep — qualitative trends</h2>
+      <div style="overflow:auto">
+        <table style="width:100%;border-collapse:collapse;border:1px solid var(--border)">
+          <thead>
+            <tr style="background:var(--card)">
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Angle</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Jet/recirculation</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Wake width</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Separation extent</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Relative lift trend*</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Relative drag trend*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px;border:1px solid var(--border)">θ = 0°</td>
+              <td style="padding:8px;border:1px solid var(--border)">Jet symmetric, attached fore-body</td>
+              <td style="padding:8px;border:1px solid var(--border)">Narrow</td>
+              <td style="padding:8px;border:1px solid var(--border)">Mild</td>
+              <td style="padding:8px;border:1px solid var(--border)">Low</td>
+              <td style="padding:8px;border:1px solid var(--border)">Low</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;border:1px solid var(--border)">θ = 25°</td>
+              <td style="padding:8px;border:1px solid var(--border)">Jet deflects downward; larger recirculation bubble</td>
+              <td style="padding:8px;border:1px solid var(--border)">Moderate</td>
+              <td style="padding:8px;border:1px solid var(--border)">Moderate</td>
+              <td style="padding:8px;border:1px solid var(--border)">Medium</td>
+              <td style="padding:8px;border:1px solid var(--border)">Medium</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;border:1px solid var(--border)">θ = 50°</td>
+              <td style="padding:8px;border:1px solid var(--border)">Strong downward jet; separated shear layer grows</td>
+              <td style="padding:8px;border:1px solid var(--border)">Wide</td>
+              <td style="padding:8px;border:1px solid var(--border)">Large</td>
+              <td style="padding:8px;border:1px solid var(--border)">Higher</td>
+              <td style="padding:8px;border:1px solid var(--border)">Higher</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta-line" style="margin-top:6px">*Relative trends inferred visually from the field plots and separation growth (no speculative numbers).</p>
+    </section>
+
+    <section>
+      <h2 style="margin:12px 0 8px 0">Field snapshots</h2>
+      <div class="figure"><img src="./saucer_0.jpg" alt="θ=0° — X-velocity"><div class="figcap">X-velocity contour, θ = 0° — narrow wake, symmetric jet.</div></div>
+      <div class="figure"><img src="./saucer_25.jpg" alt="θ=25° — X-velocity"><div class="figcap">X-velocity contour, θ = 25° — jet deflection appears; separation grows.</div></div>
+      <div class="figure"><img src="./saucer_50.jpg" alt="θ=50° — X-velocity"><div class="figcap">X-velocity contour, θ = 50° — widest wake and strongest deflection.</div></div>
+      <div class="figure"><img src="./mesh_50.jpg" alt="Mesh slice"><div class="figcap">Unstructured surface mesh on the symmetry plane (θ = 50°) showing local refinement around the body.</div></div>
+    </section>
+
+    <section>
+      <h2 style="margin:12px 0 8px 0">Notes & interpretation</h2>
+      <ul>
+        <li>As θ increases, the separated shear layer thickens and the recirculation region elongates, consistent with rising drag.</li>
+        <li>Downward jet deflection with angle suggests an increasing normal force (qualitative lift increase).</li>
+        <li>k–ω SST is appropriate here to capture adverse-pressure-gradient separation with reasonable robustness.</li>
+      </ul>
+      <p class="meta-line">Raw force tables from Fluent were not embedded to keep the page clean; the discussion above reflects the reported trends.</p>
     </section>
   </div>
 </body>
