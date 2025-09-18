@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "flying-saucer-angles",
+    "title": "Flying Saucer \u2014 Tilt Sweep (\u03b8 = 0\u00b0/25\u00b0/50\u00b0)",
+    "href": "./projects/flying-saucer-angles/project.html",
+    "cover": "./projects/flying-saucer-angles/saucer_25.jpg",
+    "tags": [
+      "3D",
+      "External Aero"
+    ],
+    "meta": "k\u2013\u03c9 SST \u00b7 Lift/Drag trends",
+    "date": "2025-09-17"
+  },
+  {
+    "slug": "pentagon-building",
+    "title": "Pentagon Building \u2014 Crosswind Loading",
+    "href": "./projects/pentagon-building/project.html",
+    "cover": "./projects/pentagon-building/run1_p.png",
+    "tags": [
+      "3D",
+      "Bluff Body"
+    ],
+    "meta": "Pressure vs Viscous Drag",
+    "date": "2025-09-17"
+  },
+  {
+    "slug": "flow-over-cylinder",
+    "title": "Flow Over Cylinder \u2014 Vortex Shedding (2D)",
+    "href": "./projects/flow-over-cylinder/project.html",
+    "cover": "./projects/flow-over-cylinder/cylinder_3.png",
+    "tags": [
+      "Unsteady",
+      "External Aero"
+    ],
+    "meta": "St\u22480.22 \u00b7 Re\u2248600 \u00b7 t=60 s",
+    "date": "2025-06-01"
+  },
+  {
+    "slug": "helical-pipe",
+    "title": "Helical Pipe \u2014 \u0394T (CFD vs Hand Calc)",
+    "href": "./projects/helical-pipe/project.html",
+    "cover": "./projects/helical-pipe/cover.jpg",
+    "tags": [
+      "Thermal",
+      "Validation"
+    ],
+    "meta": "q\u2033=600 W/m\u00b2 \u00b7 4 velocities",
+    "date": "2025-03-28"
+  }
+]

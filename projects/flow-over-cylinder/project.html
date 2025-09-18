@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Over Cylinder — Vortex Shedding (2D) — Goutham CFD</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
+    <h1>Flow Over Cylinder — Vortex Shedding (2D)</h1>
+    <div class="meta-line">Unsteady external aerodynamics around a 2D circular cylinder</div>
+    <div class="tags"><span class="pill">Unsteady</span><span class="pill">External Aero</span></div>
+    <div class="meta-line">Re≈600 · St≈0.22 · t=60 s · ANSYS Fluent</div>
+    <div class="hero"><img src="./cylinder_3.png" alt=""></div>
+    <section>
+      <p>Objective: simulate unsteady wake and quantify lift oscillation for a 0.04 m cylinder at inlet U = 0.05 m/s.</p>
+<p>Mesh: ~55k elements; Δt = 0.05 s; max 60 iterations/step; total 60 s.</p>
+<p>Outcome: shedding captured with St≈0.22; estimated lift amplitude ≈ 0.042 N; period ≈ 3.65 s.</p>
+
+    </section>
+    <section>
+      <div class="figure"><img src="./cylinder_1.png" alt=""><div class="figcap">Y-velocity contours at t = 60 s with streamlines (vortex street visible).</div></div>
+<div class="figure"><img src="./cylinder_2.png" alt=""><div class="figcap">Stream function contours at t = 60 s.</div></div>
+<div class="figure"><img src="./cylinder_3.png" alt=""><div class="figcap">Vorticity magnitude, t = 60 s — used as cover.</div></div>
+<div class="figure"><img src="./cylinder_4.png" alt=""><div class="figcap">Lift coefficient vs time; amplitude and period estimated from steady oscillation region.</div></div>
+<div class="figure"><img src="./cylinder_5.png" alt=""><div class="figcap">Lift force vs time for elliptical variants (context comparison).</div></div>
+
+    </section>
+  </div>
+</body>
+</html>

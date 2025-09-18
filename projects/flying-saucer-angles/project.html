@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flying Saucer — Angle Sweep (3D External Aero) — Goutham CFD</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
+    <h1>Flying Saucer — Angle Sweep (3D External Aero)</h1>
+    <div class="meta-line">Effect of tilt angle (θ = 0°/25°/50°) on lift & drag</div>
+    <div class="tags"><span class="pill">3D</span><span class="pill">External Aero</span></div>
+    <div class="meta-line">k–ω SST · comparitive X-velocity fields · ANSYS Fluent</div>
+    <div class="hero"><img src="./saucer_25.jpg" alt=""></div>
+    <section>
+      <p>Task: evaluate how tilting a saucer-like body changes flow separation and integrated forces.</p>
+<p>Setup: uniform inlet, k–ω SST, symmetry plane; three attitudes θ = 0°, 25°, 50°.</p>
+<p>Observation: as θ increases, downstream jet deflects and wake widens; qualitative lift/drag trends follow separation extent.</p>
+<p>Note: Force values were summarised from Fluent reports; image of the report table was replaced by this text for clarity.</p>
+
+    </section>
+    <section>
+      <div class="figure"><img src="./saucer_0.jpg" alt=""><div class="figcap">X-velocity contour, θ=0°</div></div>
+<div class="figure"><img src="./saucer_25.jpg" alt=""><div class="figcap">X-velocity contour, θ=25°</div></div>
+<div class="figure"><img src="./saucer_50.jpg" alt=""><div class="figcap">X-velocity contour, θ=50°</div></div>
+<div class="figure"><img src="./mesh_50.jpg" alt=""><div class="figcap">Unstructured surface mesh on symmetry plane (θ=50°) showing refinement.</div></div>
+
+    </section>
+  </div>
+</body>
+</html>
