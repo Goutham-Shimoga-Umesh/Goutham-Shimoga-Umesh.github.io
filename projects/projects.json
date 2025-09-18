@@ -30,7 +30,7 @@
     "slug": "flow-over-cylinder",
     "title": "Flow Over Cylinder — Vortex Shedding (2D)",
     "href": "./projects/flow-over-cylinder/project.html",
-    "cover": "./projects/flow-over-cylinder/cylinder_3.png",
+    "cover": "./projects/flow-over-cylinder/p1_cover.png",
     "tags": ["Unsteady", "External Aero"],
     "meta": "St≈0.22 · Re≈600 · t=60 s",
     "date": "2024-10-18"
