@@ -5,27 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pentagon Building — Crosswind Loading (3D) | Goutham Shimoga Umesh</title>
   <link rel="stylesheet" href="../assets/style.css" />
+
+  <!-- Page-only overrides: make figures full-width and widen container -->
   <style>
-    /* ----- Per-page overrides: full-width sections & wider container ----- */
+    /* widen just this project page a bit */
     .container { max-width: 1400px; }
-    .grid-2 { grid-template-columns: 1fr; gap: 24px; }
-    .media img { width: 100%; height: auto; max-height: none; object-fit: contain; }
-    .hero img { width: 100%; height: auto; border-radius: 16px; }
-    .section { margin-top: 28px; }
-    .section h2 { margin-bottom: 12px; }
+    @media (min-width: 1600px) {
+      .container { max-width: 1500px; }
+    }
+
+    /* force single-column for these sections only */
+    .key-outputs .grid-2,
+    .figures .grid-2 { grid-template-columns: 1fr !important; }
+
+    /* remove any image height caps and let them breathe */
+    .media img { width: 100%; height: auto; display: block; }
+    .media { max-height: none; }
+
+    /* small visual tweaks so full-width images feel balanced */
+    .section h2 { margin-top: 2.25rem; }
     figure { margin: 0; }
-    figcaption { font-size: 0.95rem; opacity: .85; margin-top: 8px; }
-    /* small helper to keep captions aligned with image edges */
-    .media { display: block; }
+    figcaption { margin-top: .5rem; opacity: .85; }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <!-- Top bar -->
+
+    <!-- Header / breadcrumb -->
     <div class="header">
       <div class="brand">
-        <a href="../index.html" class="title" style="text-decoration:none;">← Back to Portfolio</a>
-        <div class="subtitle">Pentagon Building — Crosswind Loading (3D)</div>
+        <a class="title" href="../index.html">Goutham Shimoga Umesh — Applied CFD Portfolio</a>
+        <div class="subtitle">ANSYS Fluent • Aerodynamics • Heat Transfer</div>
       </div>
       <div class="links">
         <a href="https://www.linkedin.com/in/goutham07" target="_blank" rel="noopener">LinkedIn</a>
@@ -36,115 +47,105 @@
     </div>
 
     <!-- Hero -->
-    <div class="hero section">
-      <img src="../projects/pentagon-building/Run1 press.jpg"
-           alt="Static pressure contours around the pentagon-shaped building (Run 1) on the symmetry plane." loading="eager" />
-    </div>
-
-    <!-- Meta -->
-    <div class="section">
-      <div class="pills">
-        <span class="pill">3D</span>
-        <span class="pill">Bluff Body</span>
-        <span class="pill">ANSYS Fluent</span>
+    <header class="project-hero">
+      <h1>Pentagon Building — Crosswind Loading (3D)</h1>
+      <p class="eyebrow">External Aerodynamics · 3D bluff body · ANSYS Fluent</p>
+      <div class="meta">
+        <span class="pill">Steady RANS (k–ω SST)</span>
+        <span class="pill">Y-plane symmetry</span>
+        <span class="pill">Force decomposition: pressure vs viscous</span>
       </div>
-      <div class="meta" style="margin-top:8px;">Tools: SpaceClaim/CATIA • Meshing • k–ω SST • Post-processing</div>
-    </div>
+    </header>
 
     <!-- Summary -->
-    <div class="section">
+    <section class="section">
       <h2>Overview</h2>
       <p>
-        Objective: quantify crosswind loading on a pentagon-shaped building by decomposing drag into
-        pressure and viscous components. Two runs were evaluated to compare the wake structure and
-        near-wall loading; results are reported on the symmetry plane.
+        Objective was to quantify side-loading on a pentagon-section building in cross-flow and
+        separate drag into pressure and viscous components. Two runs were performed with
+        different inlet conditions (Run&nbsp;1 and Run&nbsp;2). Post-processing was carried out on
+        the symmetry plane for static pressure and transverse (y) velocity to visualize wake
+        development and recirculation.
       </p>
-    </div>
-
-    <!-- Setup -->
-    <div class="section">
-      <h2>Setup (concise)</h2>
       <ul>
-        <li><strong>Geometry:</strong> pentagon prism, free-stream domain sized to minimize blockage.</li>
-        <li><strong>Inlet:</strong> uniform inflow (V ≈ 0.8 z tunnel scale); <strong>Outlet:</strong> pressure outlet.</li>
-        <li><strong>Walls:</strong> no-slip; building faces capture pressure drag, viscous skin friction captured on all walls.</li>
-        <li><strong>Solver:</strong> steady RANS, k–ω SST; second-order spatial discretization.</li>
-        <li><strong>Monitors:</strong> force reports (total/pressure/viscous drag) + residuals to ensure convergence.</li>
+        <li><strong>Solver:</strong> steady RANS, k–ω&nbsp;SST; second-order upwind.</li>
+        <li><strong>Domain:</strong> rectangular wind tunnel with geometric symmetry about mid-y plane.</li>
+        <li><strong>BCs:</strong> inlet velocity profile, pressure outlet, symmetry, no-slip walls.</li>
+        <li><strong>Outputs:</strong> total drag, pressure drag, viscous drag; pressure &amp; y-velocity contours.</li>
       </ul>
-    </div>
+    </section>
 
-    <!-- Key outputs (now full-width, one per row) -->
-    <div class="section key-outputs">
+    <!-- Key outputs (now full width) -->
+    <section class="section key-outputs">
       <h2>Key outputs</h2>
-
       <div class="grid-2">
         <figure class="media">
-          <img src="../projects/pentagon-building/Run1 y vel.jpg"
-               alt="Run 1 — y-velocity contour on the symmetry plane showing wake and shear layers." loading="lazy" />
-          <figcaption>Run 1 — y-velocity (symmetry plane).</figcaption>
+          <img src="../projects/pentagon-building/Run1%20y%20vel.jpg" alt="Run 1 — y-velocity on symmetry plane" />
+          <figcaption>Run&nbsp;1 — y-velocity (symmetry plane).</figcaption>
         </figure>
 
         <figure class="media">
-          <img src="../projects/pentagon-building/Run1 press.jpg"
-               alt="Run 1 — static pressure on the symmetry plane highlighting stagnation and suction zones." loading="lazy" />
-          <figcaption>Run 1 — static pressure (symmetry plane).</figcaption>
+          <img src="../projects/pentagon-building/Run1%20press.jpg" alt="Run 1 — static pressure on symmetry plane" />
+          <figcaption>Run&nbsp;1 — static pressure (symmetry plane).</figcaption>
         </figure>
 
         <figure class="media">
-          <img src="../projects/pentagon-building/Run2 y vel.jpg"
-               alt="Run 2 — y-velocity contour on the symmetry plane with elongated wake core." loading="lazy" />
-          <figcaption>Run 2 — y-velocity (symmetry plane).</figcaption>
+          <img src="../projects/pentagon-building/Run2%20y%20vel.jpg" alt="Run 2 — y-velocity on symmetry plane" />
+          <figcaption>Run&nbsp;2 — y-velocity (symmetry plane).</figcaption>
         </figure>
 
         <figure class="media">
-          <img src="../projects/pentagon-building/Run2 press.jpg"
-               alt="Run 2 — static pressure on the symmetry plane with extended low-pressure region." loading="lazy" />
-          <figcaption>Run 2 — static pressure (symmetry plane).</figcaption>
+          <img src="../projects/pentagon-building/Run2%20press.jpg" alt="Run 2 — static pressure on symmetry plane" />
+          <figcaption>Run&nbsp;2 — static pressure (symmetry plane).</figcaption>
         </figure>
       </div>
-    </div>
+    </section>
 
-    <!-- Discussion -->
-    <div class="section">
-      <h2>Takeaways</h2>
-      <ul>
-        <li>Pressure drag dominates the total drag; viscous contribution is comparatively small (skin friction).</li>
-        <li>Run-to-run differences appear as wake length and core strength changes in y-velocity, consistent with the
-            observed pressure footprint behind the building.</li>
-        <li>Flow features (stagnation at windward face, separation at edges, and bluff-body wake) match expectations for a
-            polygonal cross-section at moderate Reynolds number.</li>
-      </ul>
-    </div>
+    <!-- Forces table (values as presented in your PDF screenshot) -->
+    <section class="section">
+      <h2>Force summary</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Total drag (N)</th>
+              <th>Pressure term of drag (N)</th>
+              <th>Viscous term of drag (N)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Run&nbsp;1</td>
+              <td>4.6596</td>
+              <td>4.6394</td>
+              <td>0.0202</td>
+            </tr>
+            <tr>
+              <td>Run&nbsp;2</td>
+              <td>4.5856</td>
+              <td>4.5876</td>
+              <td>−0.0020</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Note: minor sign differences on viscous term arise from integration over the symmetry plane cut.</p>
+    </section>
 
-    <!-- Figures (also full-width, one per row) -->
-    <div class="section figures">
+    <!-- (Optional) Figures section – keep it if you later add more plots; it’s already full-width -->
+    <section class="section figures">
       <h2>Figures</h2>
+      <p class="muted">Additional images can be dropped here later; this section is already configured to display images one-per-row, full width.</p>
+      <!-- Example placeholder (remove if unused)
       <div class="grid-2">
         <figure class="media">
-          <img src="../projects/pentagon-building/Run1 y vel.jpg"
-               alt="Run 1 — y-velocity contour on symmetry plane." loading="lazy" />
-          <figcaption>Symmetry-plane velocity is useful to gauge wake size and lateral spread.</figcaption>
-        </figure>
-
-        <figure class="media">
-          <img src="../projects/pentagon-building/Run1 press.jpg"
-               alt="Run 1 — static pressure on symmetry plane." loading="lazy" />
-          <figcaption>Static pressure shows stagnation region and suction field driving pressure drag.</figcaption>
-        </figure>
-
-        <figure class="media">
-          <img src="../projects/pentagon-building/Run2 y vel.jpg"
-               alt="Run 2 — y-velocity contour on symmetry plane." loading="lazy" />
-          <figcaption>Run 2 wake core elongates slightly relative to Run 1.</figcaption>
-        </figure>
-
-        <figure class="media">
-          <img src="../projects/pentagon-building/Run2 press.jpg"
-               alt="Run 2 — static pressure on symmetry plane." loading="lazy" />
-          <figcaption>Corresponding low-pressure region expands downstream in Run 2.</figcaption>
+          <img src="../projects/pentagon-building/mesh%20detail.jpg" alt="Unstructured mesh detail near the body">
+          <figcaption>Local refinement near sharp edges and wake origin.</figcaption>
         </figure>
       </div>
-    </div>
+      -->
+    </section>
 
     <!-- Footer -->
     <div class="footer">
