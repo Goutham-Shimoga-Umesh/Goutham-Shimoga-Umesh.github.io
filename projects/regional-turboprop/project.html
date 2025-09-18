@@ -5,29 +5,126 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Regional Turboprop — Design Point & Wing FEA — Goutham CFD</title>
 <link rel="stylesheet" href="../../assets/style.css">
+<style>
+  /* light table styling that matches your theme */
+  .table { width:100%; border-collapse:collapse; }
+  .table th, .table td { padding:10px 12px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); text-align:left; }
+  .table th { color:var(--muted); font-weight:600; letter-spacing:.2px; background:var(--card-2); }
+  .table caption { text-align:left; color:var(--muted); margin-bottom:8px; }
+  .kpi { font-weight:700; }
+  .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  @media (max-width:720px){ .grid-2{ grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
   <div class="main">
     <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
-    <h1>Regional Turboprop — Design Point & Wing FEA</h1>
-    <div class="meta-line">Conceptual sizing → wing structural analysis (ANSYS Workbench)</div>
-    <div class="tags"><span class="pill">Conceptual Sizing</span><span class="pill">Structural FEA</span></div>
-    <div class="meta-line">MTOW 38.5 t · Wing area ≈ 66 m² · Installed power ≈ 9.05 MW</div>
 
-    <div class="hero"><img src="./cover_total_deformation.png" alt="Wing deformation field"></div>
+    <h1>Regional Turboprop — Design Point & Wing FEA</h1>
+    <div class="meta-line">Conceptual sizing → wing static strength/stiffness (ANSYS Workbench)</div>
+    <div class="tags"><span class="pill">Conceptual Sizing</span><span class="pill">Structural FEA</span></div>
+    <div class="meta-line">MTOW 38.5 t · Wing area ≈ 66 m² · Installed shaft power ≈ 9.05 MW</div>
+
+    <div class="hero">
+      <img src="./cover_total_deformation.png" alt="Static deformation field (cover)">
+    </div>
 
     <section>
-      <p><strong>Goal.</strong> Pick a feasible design point for a regional turboprop using matching-plot methodology (W/S vs W/P), then build a 3D half-wing and evaluate static strength and stiffness.</p>
-      <p><strong>Sizing highlights.</strong> From mission/performance constraints (takeoff, climb, ceiling, cruise), the trade space pointed to <em>W/S ≈ 585 N/m²</em>. For an <em>MTOW ≈ 38.5 t</em>, this yields <em>S ≈ 66 m²</em> and <em>installed power ≈ 9.05 MW</em> (two engines).</p>
-      <p><strong>FEA setup.</strong> Wing skins (sheet alloy), ribs and spars modeled as solid parts, root fixed; load cases derived from lift distribution matching the design point. Post-processing shows deformation and von‑Mises stress envelopes.</p>
-      <p><strong>Takeaway.</strong> Peak equivalent stress localizes near the root; global tip deflection pattern consistent with tapered planform. The figure stack below shows the key frames used on the poster.</p>
+      <p><strong>When/Team.</strong> Bachelor project (2023), team of 4. <strong>My role:</strong> performance sizing & structural analysis.</p>
+      <p><strong>Goal.</strong> Locate a feasible design point for a regional turboprop using a constraint/matching plot (W/S vs W/P), then model a half-span wing and evaluate static deformation and von-Mises stress.</p>
+
+      <div class="grid-2">
+        <div>
+          <h3>What I did</h3>
+          <ul>
+            <li>Derived mission/performance constraints (takeoff, climb, cruise, ceiling) and built a matching plot to select the design point.</li>
+            <li>Selected <em>NACA 64-108</em> and created a half-span 3D wing (skins, ribs, spars) with tapered planform.</li>
+            <li>Ran <strong>Static Structural</strong> FEA in ANSYS (root fixed; lift-derived loading) and post-processed deformation & stress fields.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <ul>
+            <li>Sizing equations & matching plot (W/S vs W/P)</li>
+            <li>CAD (parametric rib/web layout)</li>
+            <li>ANSYS Workbench — Static Structural</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section>
-      <div class="figure"><img src="./vonmises_stress.png" alt="von Mises stress field"><div class="figcap">von‑Mises stress contours — highest around root attachments.</div></div>
-      <div class="figure"><img src="./deformed_plus_undef.png" alt="Deformed vs undeformed overlay"><div class="figcap">Deformed (scaled) vs undeformed overlay for qualitative stiffness check.</div></div>
-      <div class="figure"><img src="./ribs_spars_view.png" alt="Ribs and spars"><div class="figcap">Internal structure: ribs and spars arrangement used in the static case.</div></div>
-      <div class="figure"><img src="./planform_top.png" alt="Planform top view"><div class="figcap">Planform/top view of the half-wing model used for analysis.</div></div>
+      <h3>Key results (design point & structure)</h3>
+      <table class="table">
+        <tbody>
+          <tr><th>Maximum take-off weight (MTOW)</th><td class="kpi">38,540 kg</td></tr>
+          <tr><th>Wing loading, W/S</th><td>≈ 582.1 kg/m²</td></tr>
+          <tr><th>Wing planform area, S</th><td>≈ 66.2 m²</td></tr>
+          <tr><th>Power loading, W/P</th><td>≈ 4.257 kg/kW</td></tr>
+          <tr><th>Total installed shaft power</th><td class="kpi">≈ 9.05 MW (twin turboprop class)</td></tr>
+          <tr><th>Max total deformation (static)</th><td>≈ 0.451 m</td></tr>
+          <tr><th>Single-wing structural mass (model)</th><td>≈ 530 kg</td></tr>
+          <tr><th>Airfoil</th><td>NACA 64-108</td></tr>
+        </tbody>
+      </table>
+      <p class="meta-line">Notes: Power reported is total shaft power (both engines). Structural results correspond to the static load case shown below.</p>
+    </section>
+
+    <section>
+      <h3>Load case & modeling summary</h3>
+      <table class="table">
+        <thead>
+          <tr><th>Aspect</th><th>Summary</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Boundary conditions</td>
+            <td>Wing root fixed; loads derived from spanwise lift distribution at the selected design point.</td>
+          </tr>
+          <tr>
+            <td>Structure</td>
+            <td>Sheet skins + rib/ web/ spar solids; tapered planform and realistic rib spacing (see internal layout figure).</td>
+          </tr>
+          <tr>
+            <td>Outputs</td>
+            <td>Total deformation map for global stiffness; von-Mises stress for local strength checks around root/spar joints.</td>
+          </tr>
+          <tr>
+            <td>Interpretation</td>
+            <td>Peak stresses localize near root attachments as expected; deflection gradient is smooth along the taper, consistent with the assumed load.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Figure stack</h3>
+      <div class="figure">
+        <img src="./vonmises_stress.png" alt="von Mises stress field">
+        <div class="figcap">von-Mises stress contours — maxima near the root attachments.</div>
+      </div>
+      <div class="figure">
+        <img src="./deformed_plus_undef.png" alt="Deformed vs undeformed overlay">
+        <div class="figcap">Deformed (scaled) vs. undeformed overlay — qualitative stiffness check.</div>
+      </div>
+      <div class="figure">
+        <img src="./ribs_spars_view.png" alt="Ribs and spars">
+        <div class="figcap">Internal structure: ribs and spars arrangement used in the static analysis.</div>
+      </div>
+      <div class="figure">
+        <img src="./planform_top.png" alt="Planform top view">
+        <div class="figcap">Planform/top view of the half-wing model used for FEA.</div>
+      </div>
+    </section>
+
+    <section>
+      <h3>What this demonstrates</h3>
+      <ul>
+        <li>Linking performance sizing (constraint analysis) to structural feasibility.</li>
+        <li>Hands-on pipeline: constraints → design point → parametric model → FEA → clear KPIs.</li>
+        <li>Concise communication with a metrics table and targeted figures.</li>
+      </ul>
+      <p class="meta-line"><em>Next iteration:</em> refine power with propulsive efficiency & segment analysis; couple aero pressure loads from CFD for tighter deflection targets.</p>
     </section>
   </div>
 </body>
