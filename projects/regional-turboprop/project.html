@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regional Turboprop — Design Point & Wing FEA — Goutham CFD</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
+    <h1>Regional Turboprop — Design Point & Wing FEA</h1>
+    <div class="meta-line">Conceptual sizing → wing structural analysis (ANSYS Workbench)</div>
+    <div class="tags"><span class="pill">Conceptual Sizing</span><span class="pill">Structural FEA</span></div>
+    <div class="meta-line">MTOW 38.5 t · Wing area ≈ 66 m² · Installed power ≈ 9.05 MW</div>
+
+    <div class="hero"><img src="./cover_total_deformation.png" alt="Wing deformation field"></div>
+
+    <section>
+      <p><strong>Goal.</strong> Pick a feasible design point for a regional turboprop using matching-plot methodology (W/S vs W/P), then build a 3D half-wing and evaluate static strength and stiffness.</p>
+      <p><strong>Sizing highlights.</strong> From mission/performance constraints (takeoff, climb, ceiling, cruise), the trade space pointed to <em>W/S ≈ 585 N/m²</em>. For an <em>MTOW ≈ 38.5 t</em>, this yields <em>S ≈ 66 m²</em> and <em>installed power ≈ 9.05 MW</em> (two engines).</p>
+      <p><strong>FEA setup.</strong> Wing skins (sheet alloy), ribs and spars modeled as solid parts, root fixed; load cases derived from lift distribution matching the design point. Post-processing shows deformation and von‑Mises stress envelopes.</p>
+      <p><strong>Takeaway.</strong> Peak equivalent stress localizes near the root; global tip deflection pattern consistent with tapered planform. The figure stack below shows the key frames used on the poster.</p>
+    </section>
+
+    <section>
+      <div class="figure"><img src="./vonmises_stress.png" alt="von Mises stress field"><div class="figcap">von‑Mises stress contours — highest around root attachments.</div></div>
+      <div class="figure"><img src="./deformed_plus_undef.png" alt="Deformed vs undeformed overlay"><div class="figcap">Deformed (scaled) vs undeformed overlay for qualitative stiffness check.</div></div>
+      <div class="figure"><img src="./ribs_spars_view.png" alt="Ribs and spars"><div class="figcap">Internal structure: ribs and spars arrangement used in the static case.</div></div>
+      <div class="figure"><img src="./planform_top.png" alt="Planform top view"><div class="figcap">Planform/top view of the half-wing model used for analysis.</div></div>
+    </section>
+  </div>
+</body>
+</html>
