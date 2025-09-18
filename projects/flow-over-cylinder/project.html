@@ -10,23 +10,83 @@
   <div class="main">
     <div class="breadcrumbs"><a href="../../index.html">← Back</a></div>
     <h1>Flow Over Cylinder — Vortex Shedding (2D)</h1>
-    <div class="meta-line">Unsteady external aerodynamics around a 2D circular cylinder</div>
+    <div class="meta-line">Unsteady external aerodynamics around a circular cylinder</div>
     <div class="tags"><span class="pill">Unsteady</span><span class="pill">External Aero</span></div>
-    <div class="meta-line">Re≈600 · St≈0.22 · t=60 s · ANSYS Fluent</div>
-    <div class="hero"><img src="./cylinder_3.png" alt=""></div>
-    <section>
-      <p>Objective: simulate unsteady wake and quantify lift oscillation for a 0.04 m cylinder at inlet U = 0.05 m/s.</p>
-<p>Mesh: ~55k elements; Δt = 0.05 s; max 60 iterations/step; total 60 s.</p>
-<p>Outcome: shedding captured with St≈0.22; estimated lift amplitude ≈ 0.042 N; period ≈ 3.65 s.</p>
+    <div class="meta-line">Re≈600 · St≈0.22 · t = 60 s · ANSYS Fluent (2023 R1)</div>
 
+    <!-- Cover -->
+    <div class="hero">
+      <img src="./p1_cover.png" alt="Vorticity magnitude at t = 60 s (von Kármán street)">
+    </div>
+
+    <!-- Summary -->
+    <section>
+      <p><strong>Objective.</strong> Resolve the unsteady wake and quantify the lift oscillation for a 2D circular cylinder.</p>
+      <p><strong>Problem setup.</strong> Diameter <code class="inline">D = 0.04 m</code>, inlet velocity <code class="inline">U = 0.05 m/s</code>, fluid <code class="inline">ρ = 730 kg/m³</code>, <code class="inline">μ = 0.0024 kg/(m·s)</code>. Computed Reynolds number: <code class="inline">Re = ρUD/μ ≈ 608</code>.</p>
     </section>
-    <section>
-      <div class="figure"><img src="./cylinder_1.png" alt=""><div class="figcap">Y-velocity contours at t = 60 s with streamlines (vortex street visible).</div></div>
-<div class="figure"><img src="./cylinder_2.png" alt=""><div class="figcap">Stream function contours at t = 60 s.</div></div>
-<div class="figure"><img src="./cylinder_3.png" alt=""><div class="figcap">Vorticity magnitude, t = 60 s — used as cover.</div></div>
-<div class="figure"><img src="./cylinder_4.png" alt=""><div class="figcap">Lift coefficient vs time; amplitude and period estimated from steady oscillation region.</div></div>
-<div class="figure"><img src="./cylinder_5.png" alt=""><div class="figcap">Lift force vs time for elliptical variants (context comparison).</div></div>
 
+    <!-- Inputs table -->
+    <section>
+      <div class="figure">
+        <div class="figcap"><strong>Model & Numerics</strong></div>
+        <div style="padding:12px">
+          <table style="width:100%;border-collapse:collapse">
+            <tbody>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Domain & BCs</td><td style="padding:6px;border-bottom:1px solid #1b263b">2D channel; velocity inlet (U=0.05 m/s), pressure outlet, no-slip cylinder</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Fluid properties</td><td style="padding:6px;border-bottom:1px solid #1b263b">ρ = 730 kg/m³, μ = 0.0024 kg/(m·s)</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Reynolds number</td><td style="padding:6px;border-bottom:1px solid #1b263b">Re = 608.33</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Mesh size</td><td style="padding:6px;border-bottom:1px solid #1b263b">≈ 55,969 elements; ≈ 56,521 nodes</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Time stepping</td><td style="padding:6px;border-bottom:1px solid #1b263b">Δt = 0.05 s, 1200 steps (total 60 s), ≤ 60 iters/step</td></tr>
+              <tr><td style="padding:6px">Solver</td><td style="padding:6px">Transient, pressure-based; second-order in time</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results table -->
+    <section>
+      <div class="figure">
+        <div class="figcap"><strong>Key Results</strong></div>
+        <div style="padding:12px">
+          <table style="width:100%;border-collapse:collapse">
+            <tbody>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Lift oscillation amplitude (late time)</td><td style="padding:6px;border-bottom:1px solid #1b263b">≈ 0.04275 N</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Oscillation period</td><td style="padding:6px;border-bottom:1px solid #1b263b">≈ 3.65 s (from 51.05 s – 47.4 s)</td></tr>
+              <tr><td style="padding:6px;border-bottom:1px solid #1b263b">Shedding frequency</td><td style="padding:6px;border-bottom:1px solid #1b263b">f ≈ 1/3.65 ≈ 0.274 Hz</td></tr>
+              <tr><td style="padding:6px">Strouhal number</td><td style="padding:6px">St = fD/U ≈ 0.274×0.04/0.05 ≈ <strong>0.22</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Figures (single column) -->
+    <section>
+      <div class="figure">
+        <img src="./01_y_velocity_60s.png" alt="Y-velocity with streamline overlays at t = 60 s">
+        <div class="figcap">Y-velocity with streamline overlays at t = 60 s — clear alternating cross-stream jets of the von Kármán street.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./02_streamfunction_60s.png" alt="Stream function at t = 60 s">
+        <div class="figcap">Stream function contours — smooth outer flow with periodic recirculation bubbles in the wake.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./p1_cover.png" alt="Vorticity magnitude at t = 60 s">
+        <div class="figcap">Vorticity magnitude at t = 60 s — alternating high-vorticity cores convect downstream.</div>
+      </div>
+
+      <div class="figure">
+        <img src="./04_lift_time_circular.png" alt="Lift force vs time (N)">
+        <div class="figcap">Lift force vs time — amplitude and period measured in the fully developed region (≈ 30–60 s).</div>
+      </div>
+    </section>
+
+    <section>
+      <p><strong>Takeaways.</strong> The simulation reproduces canonical vortex shedding behavior at Re≈600. The measured Strouhal number (~0.22) is consistent with literature for sub-critical Re, and the force history shows clean, periodic behavior after initial spin-up.</p>
+      <p><strong>Next step.</strong> Convert lift to <em>C<sub>L</sub></em> using dynamic pressure and span, and probe grid/time-step sensitivity to quantify uncertainty.</p>
     </section>
   </div>
 </body>
