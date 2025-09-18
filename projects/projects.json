@@ -1,5 +1,14 @@
 [
   {
+  "slug": "regional-turboprop",
+  "title": "Regional Turboprop — Design Point & Wing FEA",
+  "href": "./projects/regional-turboprop/project.html",
+  "cover": "./projects/regional-turboprop/cover_total_deformation.png",
+  "tags": ["Conceptual Sizing", "Structural FEA"],
+  "meta": "MTOW 38.5 t · S≈66 m² · P≈9.05 MW",
+  "date": "2025-09-17"
+  }
+  {
     "slug": "flying-saucer-angles",
     "title": "Flying Saucer \u2014 Tilt Sweep (\u03b8 = 0\u00b0/25\u00b0/50\u00b0)",
     "href": "./projects/flying-saucer-angles/project.html",
