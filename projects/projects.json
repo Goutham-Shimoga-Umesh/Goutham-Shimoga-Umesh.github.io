@@ -15,7 +15,7 @@
     "cover": "./projects/flying-saucer-angles/saucer_25.jpg",
     "tags": ["3D", "External Aero"],
     "meta": "k–ω SST · Lift/Drag trends",
-    "date": "2025-09-17"
+    "date": "2024-09-17"
   },
   {
     "slug": "pentagon-building",
@@ -24,7 +24,7 @@
     "cover": "./projects/pentagon-building/run1_p.png",
     "tags": ["3D", "Bluff Body"],
     "meta": "Pressure vs Viscous Drag",
-    "date": "2025-09-17"
+    "date": "2024-10-17"
   },
   {
     "slug": "flow-over-cylinder",
@@ -33,7 +33,7 @@
     "cover": "./projects/flow-over-cylinder/cylinder_3.png",
     "tags": ["Unsteady", "External Aero"],
     "meta": "St≈0.22 · Re≈600 · t=60 s",
-    "date": "2025-06-01"
+    "date": "2024-10-18"
   },
   {
     "slug": "helical-pipe",
@@ -42,6 +42,6 @@
     "cover": "./projects/helical-pipe/cover.jpg",
     "tags": ["Thermal", "Validation"],
     "meta": "q″=600 W/m² · 4 velocities",
-    "date": "2025-03-28"
+    "date": "2023-03-28"
   }
 ]
