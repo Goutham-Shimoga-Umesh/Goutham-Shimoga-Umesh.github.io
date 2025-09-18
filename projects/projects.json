@@ -36,12 +36,12 @@
     "date": "2024-10-18"
   },
   {
-    "slug": "helical-pipe",
-    "title": "Helical Pipe — ΔT (CFD vs Hand Calc)",
-    "href": "./projects/helical-pipe/project.html",
-    "cover": "./projects/helical-pipe/cover.jpg",
-    "tags": ["Thermal", "Validation"],
-    "meta": "q″=600 W/m² · 4 velocities",
+    "slug": "vof-gas-leak",
+    "title": "VOF Gas Leak with Cross-Flow — Transient Dispersion",
+    "href": "./projects/vof-gas-leak/project.html",
+    "cover": "./projects/vof-gas-leak/d1.1.jpg",
+    "tags": ["VOF", "Multiphase", "Safety/Dispersion"],
+    "meta": "Methane plume @ 3.0 & 4.5 s · Δt=0.01 s · ≤60 iters/step",
     "date": "2023-03-28"
   }
 ]
