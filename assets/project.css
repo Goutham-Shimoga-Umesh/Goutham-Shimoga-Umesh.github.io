@@ -1,7 +1,0 @@
-
-.project header, .project .project-head { margin-bottom: 1rem; }
-.project .shot { margin: 1.25rem 0; }
-.project .shot img { width: 100%; height: auto; border-radius: 12px; display:block; }
-.project .shot figcaption { font-size: 0.95rem; opacity: 0.9; margin-top: 0.5rem; }
-.project .two-col { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-.project .callout { padding: 0.75rem 1rem; border: 1px dashed var(--border,#2b2b2b); border-radius: 12px; font-size: 0.95rem; opacity: 0.9;}
