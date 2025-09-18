@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pentagon Building — Crosswind Loading (3D)</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .hero { max-width: 1100px; margin: 24px auto; }
+    .hero img { width: 100%; border-radius: 14px; display: block; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
+    .h { font-size: 28px; font-weight: 700; margin: 24px 0 8px; }
+    .sub { color: var(--muted); margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .fig img { width: 100%; border-radius: 12px; border: 1px solid var(--border); }
+    .fig .cap { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .btnbar { display:flex; gap: 10px; margin: 12px 0 28px; }
+    .btn { padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); }
+    .pill { display:inline-block; padding:4px 10px; border:1px solid var(--border); border-radius:999px; margin-right:8px; font-size:12px; color:var(--muted); }
+    ul { margin: 10px 0 20px 18px; }
+    li { margin-bottom: 6px; }
+    .kpi { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin: 12px 0 24px; }
+    .cardish { border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .k { font-size: 12px; color: var(--muted); }
+    .v { font-weight: 600; font-size: 18px; }
+    .note { font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="btnbar">
+      <a class="btn" href="../index.html">← Back to Home</a>
+      <a class="btn" href="../projects/project3/cover.jpg" target="_blank" rel="noopener">Open Cover</a>
+    </div>
+
+    <div class="pill">3D</div>
+    <div class="pill">Bluff Body</div>
+    <h1 class="h">Pentagon Building — Crosswind Loading (3D)</h1>
+    <div class="sub">Pressure vs. viscous contributions to drag at two inlet profiles (V ≈ 0.625&nbsp;m/s, symmetry-plane analysis).</div>
+
+    <div class="hero">
+      <img src="./project3/cover.jpg" alt="Static pressure contour (Run 2)">
+    </div>
+
+    <div class="kpi">
+      <div class="cardish"><div class="k">Domain</div><div class="v">3D wind tunnel</div></div>
+      <div class="cardish"><div class="k">Solver</div><div class="v">ANSYS Fluent 2024 R2</div></div>
+      <div class="cardish"><div class="k">Mesh</div><div class="v">Unstructured (local refinement)</div></div>
+    </div>
+
+    <h2 class="h">What I did</h2>
+    <ul>
+      <li>Built a simplified pentagon-shaped building and tunnel in 3D.</li>
+      <li>Set two inlet profiles (&ldquo;Run&nbsp;1&rdquo; and &ldquo;Run&nbsp;2&rdquo;) to compare wake and drag behavior.</li>
+      <li>Post‑processed symmetry‑plane contours: y‑velocity and static pressure for each run.</li>
+      <li>Extracted total drag and split into pressure vs. viscous terms.</li>
+    </ul>
+
+    <h2 class="h">Key outputs</h2>
+    <div class="grid">
+      <div class="fig">
+        <img src="./project3/run1-y-velocity.jpg" alt="Run 1: y-velocity contour on symmetry plane">
+        <div class="cap">Run 1 — y‑velocity (symmetry plane).</div>
+      </div>
+      <div class="fig">
+        <img src="./project3/run1-pressure.jpg" alt="Run 1: static pressure contour on symmetry plane">
+        <div class="cap">Run 1 — static pressure (symmetry plane).</div>
+      </div>
+      <div class="fig">
+        <img src="./project3/run2-y-velocity.jpg" alt="Run 2: y-velocity contour on symmetry plane">
+        <div class="cap">Run 2 — y‑velocity (symmetry plane).</div>
+      </div>
+      <div class="fig">
+        <img src="./project3/run2-pressure.jpg" alt="Run 2: static pressure contour on symmetry plane">
+        <div class="cap">Run 2 — static pressure (symmetry plane).</div>
+      </div>
+    </div>
+
+    <h2 class="h">Results (concise)</h2>
+    <ul>
+      <li>Wake is more elongated and energetic in Run&nbsp;2, increasing pressure drag dominance.</li>
+      <li>Viscous drag is small compared with the pressure term for this bluff body, as expected.</li>
+      <li>Contours show a compact high‑pressure zone at the windward face and a low‑pressure wake aft.</li>
+    </ul>
+    <p class="note">Numbers are available on request (drag breakdown per run); student version watermark retained.</p>
+
+    <div class="btnbar">
+      <a class="btn" href="../index.html">← Back to Home</a>
+      <a class="btn" href="https://github.com/Goutham-Shimoga-Umesh" target="_blank" rel="noopener">View Code on GitHub</a>
+    </div>
+  </div>
+</body>
+</html>
